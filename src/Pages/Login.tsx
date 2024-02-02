@@ -36,7 +36,7 @@ const Login = () => {
       if (isSignUp) {
         // Handle signup logic
         const response = await axios.post(
-          "https://food-order-api-eight.vercel.app/api/register",
+          "https://food-order-ochre.vercel.app/api/register",
           {
             firstName,
             lastName,
@@ -60,7 +60,7 @@ const Login = () => {
       } else {
         // Handle login logic
         const response = await axios.post(
-          "https://food-order-api-eight.vercel.app/api/login",
+          "https://food-order-ochre.vercel.app/api/login",
           {
             firstName,
             lastName,

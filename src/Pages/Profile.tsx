@@ -16,7 +16,7 @@ const Profile = () => {
       console.error("User not logged in");
       return;
     }
-    fetch("https://food-order-api-eight.vercel.app/api/profile", {
+    fetch("https://food-order-ochre.vercel.app/api/profile", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',

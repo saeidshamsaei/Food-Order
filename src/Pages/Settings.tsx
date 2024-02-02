@@ -16,7 +16,7 @@ const Settings = () => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("https://food-order-api-eight.vercel.app/api/profile", {
+        const response = await fetch("https://food-order-ochre.vercel.app/api/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ const Settings = () => {
   
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://food-order-api-eight.vercel.app/api/update-profile", {
+      const response = await fetch("https://food-order-ochre.vercel.app/api/update-profile", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
