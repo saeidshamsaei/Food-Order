@@ -70,7 +70,7 @@ const Cart = ({ cart, setCart, handleChange }: CartProps) => {
   try {
     // Check if the selected table is already occupied
     const occupiedOrdersResponse = await fetch(
-      `http://localhost:5000/api/orders/table/${tableNumber}/occupied`,
+      `https://food-order-api-eight.vercel.app/api/orders/table/${tableNumber}/occupied`,
       {
         method: "GET",
         headers: {
@@ -81,7 +81,7 @@ const Cart = ({ cart, setCart, handleChange }: CartProps) => {
     );
     if (occupiedOrdersResponse.ok) {
       const occupiedOrders = await occupiedOrdersResponse.json();
-      const userResponse = await fetch("http://localhost:5000/api/profile", {
+      const userResponse = await fetch("https://food-order-api-eight.vercel.app/api/profile", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -143,7 +143,7 @@ const Cart = ({ cart, setCart, handleChange }: CartProps) => {
     }
 
     // Fetch user information
-    const userResponse = await fetch("http://localhost:5000/api/profile", {
+    const userResponse = await fetch("https://food-order-api-eight.vercel.app/api/profile", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -175,7 +175,7 @@ const Cart = ({ cart, setCart, handleChange }: CartProps) => {
     };
 
     // Send the order to the server
-    const orderResponse = await fetch("http://localhost:5000/api/orders", {
+    const orderResponse = await fetch("https://food-order-api-eight.vercel.app/api/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
