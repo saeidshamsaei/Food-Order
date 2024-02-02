@@ -45,12 +45,12 @@ const Login = () => {
           }
         );
         console.log(response);
-        navigate("/home");
         if (response.data.token) {
           const { token } = response.data;
-          console.log("User registered successfully", token);
           localStorage.setItem("token", token);
           console.log("sign token", token);
+          saveUserInfoToLocalStorage(token);
+          navigate("/home");
         }
 
       } else {
