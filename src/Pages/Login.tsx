@@ -36,7 +36,7 @@ const Login = () => {
       if (isSignUp) {
         // Handle signup logic
         const response = await axios.post(
-          "https://food-order-ochre.vercel.app/api/register",
+          "https://food-order-api-eight.vercel.app/api/register",
           {
             firstName,
             lastName,
@@ -44,7 +44,7 @@ const Login = () => {
             password,
           }
         );
-        // console.log(response.data);
+        console.log(response.data);
         console.log(response.data.token);
 
         if (response.data.token) {
@@ -55,12 +55,12 @@ const Login = () => {
           navigate("/home");
         }
         else{
-          console.error("Registration failed:", response.data.message);
+           console.error("Registration failed:", response.data.message);
         }
       } else {
         // Handle login logic
         const response = await axios.post(
-          "https://food-order-ochre.vercel.app/api/login",
+          "https://food-order-api-eight.vercel.app/api/login",
           {
             firstName,
             lastName,

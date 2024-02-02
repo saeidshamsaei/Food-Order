@@ -63,7 +63,7 @@ const AdminPanel = () => {
   const fetchOrders = useCallback(async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("https://food-order-ochre.vercel.app/api/orders", {
+      const response = await fetch("https://food-order-api-eight.vercel.app/api/orders", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -92,7 +92,7 @@ const AdminPanel = () => {
           // console.log(tableNumber);
           // Make an API call to free up the table
           const freeTableResponse = await fetch(
-            `https://food-order-ochre.vercel.app/api/orders/table/${tableNumber}/free`,
+            `https://food-order-api-eight.vercel.app/api/orders/table/${tableNumber}/free`,
             {
               method: "PUT",
               headers: {
@@ -112,7 +112,7 @@ const AdminPanel = () => {
 
       // Update the order status on the server
       const response = await fetch(
-        `https://food-order-ochre.vercel.app/api/orders/${userId}/status`,
+        `https://food-order-api-eight.vercel.app/api/orders/${userId}/status`,
         {
           method: "PUT",
           headers: {
@@ -145,7 +145,7 @@ const AdminPanel = () => {
     try {
       // Make an API call to delete the order
       const response = await fetch(
-        `https://food-order-ochre.vercel.app/api/orders/${userId}`,
+        `https://food-order-api-eight.vercel.app/api/orders/${userId}`,
         {
           method: "DELETE",
           headers: {

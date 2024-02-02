@@ -19,8 +19,8 @@ const AdminLogin = () => {
       if (isSignUp) {
         // Handle signup logic
         const endpoint = isAdmin
-          ? "https://food-order-ochre.vercel.app/api/admin-register" // Example admin register endpoint
-          : "https://food-order-ochre.vercel.app/api/register"; // Default register endpoint
+          ? "https://food-order-api-eight.vercel.app/api/admin-register" // Example admin register endpoint
+          : "https://food-order-api-eight.vercel.app/api/register"; // Default register endpoint
 
         const req = await axios.post(endpoint, {
           firstName,
@@ -39,8 +39,8 @@ const AdminLogin = () => {
       } else {
         // Handle login logic
         const endpoint = isAdmin
-          ? "https://food-order-ochre.vercel.app/api/admin-login" // Example admin login endpoint
-          : "https://food-order-ochre.vercel.app/api/login"; // Default login endpoint
+          ? "https://food-order-api-eight.vercel.app/api/admin-login" // Example admin login endpoint
+          : "https://food-order-api-eight.vercel.app/api/login"; // Default login endpoint
 
         const response = await axios.post(endpoint, {
           email,
