@@ -44,26 +44,34 @@ const Login = () => {
             password,
           }
         );
-        console.log(response);
+        // console.log(response.data);
+        console.log(response.data.token);
+
         if (response.data.token) {
           const { token } = response.data;
           localStorage.setItem("token", token);
-          console.log("sign token", token);
           saveUserInfoToLocalStorage(token);
+          console.log("Before navigation");
           navigate("/home");
         }
-
+        else{
+          console.error("Registration failed:", response.data.message);
+        }
       } else {
         // Handle login logic
-        const response = await axios.post("https://food-order-api-eight.vercel.app/api/login", {
-          firstName,
-          lastName,
-          email,
-          password,
-        });
+        const response = await axios.post(
+          "https://food-order-api-eight.vercel.app/api/login",
+          {
+            firstName,
+            lastName,
+            email,
+            password,
+          }
+        );
         // Check if the response contains a token
         if (response.data.token) {
           const { token } = response.data;
+          localStorage.setItem("token", token);
           saveUserInfoToLocalStorage(token);
           navigate("/home");
         } else {
@@ -71,7 +79,7 @@ const Login = () => {
         }
       }
     } catch (error) {
-      console.error("Authentication error:",error);
+      console.error("Authentication error:", error);
     }
   };
 
@@ -167,7 +175,9 @@ const Login = () => {
           {isSignUp ? "Sign Up" : "Login"}
         </button>
         <p className="text-gray-600 mt-2">
-          {isSignUp ? "Already have an account? after submitting click on" : "Don't have an account?"}
+          {isSignUp
+            ? "Already have an account? after submitting click on"
+            : "Don't have an account?"}
           <span
             className="text-indigo-500 cursor-pointer ml-1"
             onClick={() => setIsSignUp((prev) => !prev)}
